@@ -1,0 +1,6 @@
+server:
+  ports: "1323"
+kafka:
+  brokers: "localhost:9092"
+  topic: "wallet-stream"
+  group: "wallet-group"
