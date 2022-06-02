@@ -1,5 +1,5 @@
 server:
-  ports: "1323"
+  port: ":1323"
 kafka:
   brokers: "localhost:9092"
   topic: "wallet-stream"

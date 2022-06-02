@@ -35,14 +35,13 @@ func (w *walletUsecase) GetWalletByID(c context.Context, id int64) (*models.Wall
 func (w *walletUsecase) Deposit(c context.Context, data models.CreateDeposit) error {
 	ctx, cancel := context.WithTimeout(c, w.contextTimeout)
 	defer cancel()
+
 	_, err := w.GetWalletByID(ctx, data.WalletID)
 	if err != nil {
 		return err
 	}
-	err = w.depositRepo.Create(ctx, models.CreateDeposit{
-		WalletID: data.WalletID,
-		Amount:   data.Amount,
-	})
+
+	err = w.depositRepo.Create(ctx, data)
 	if err != nil {
 		return err
 	}
