@@ -2,6 +2,7 @@ package models
 
 import (
 	"context"
+	"time"
 )
 
 type WalletUsecase interface {
@@ -11,6 +12,7 @@ type WalletUsecase interface {
 
 type WalletRepository interface {
 	GetWalletByID(c context.Context, id int64) (*Wallet, error)
+	GetThresholdTimeByIDs(c context.Context, id int64) (*time.Time, error)
 }
 
 type Wallet struct {

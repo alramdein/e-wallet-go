@@ -7,6 +7,7 @@ type DepositRepository interface {
 }
 
 type CreateDeposit struct {
-	WalletID int64   `json:"wallet_id"`
-	Amount   float64 `json:"amount"`
+	WalletID       int64   `json:"wallet_id"`
+	Amount         float64 `json:"amount"`
+	AboveThreshold bool    `json:"above_threshold"`
 }

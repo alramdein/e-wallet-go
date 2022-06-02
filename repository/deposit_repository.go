@@ -3,6 +3,7 @@ package repository
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 
 	"github.com/alramdein/e-wallet/models"
 	"github.com/lovoo/goka/storage"
@@ -32,7 +33,7 @@ func (d *depositRepo) Create(c context.Context, data models.CreateDeposit) error
 		return err
 	}
 
-	err = d.db.Set(string(data.WalletID), mwallet)
+	err = d.db.Set(fmt.Sprint(data.WalletID), mwallet)
 	if err != nil {
 		return err
 	}
